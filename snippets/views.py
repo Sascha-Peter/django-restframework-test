@@ -7,8 +7,13 @@ from rest_framework.response import Response
 
 
 @api_view(['GET', 'POST'])
-def snippet_list(request):
-    """Get a list of all snippets or create a new snippet."""
+def snippet_list(request, format=None):
+    """Get a list of all snippets or create a new snippet.
+
+    Arguments:
+        request -- HTTP request
+        format -- string, format of API output/response
+    """
     if request.method == 'GET':
         snippets = Snippet.objects.all()
         serializer = SnippetSerializer(snippets, many=True)
@@ -23,8 +28,14 @@ def snippet_list(request):
 
 
 @api_view(['GET', 'POST', 'DELETE'])
-def snippet_detail(request, pk):
-    """Get, update or delete a code snippet."""
+def snippet_detail(request, pk, format=None):
+    """Get, update or delete a code snippet.
+
+    Arguments:
+        request -- HTTP request
+        pk -- int, primary key of object to fetch/return
+        format -- string, format of API output/response
+    """
     try:
         snippet = Snippet.objects.get(pk=pk)
     except Snippet.DoesNotExist:
