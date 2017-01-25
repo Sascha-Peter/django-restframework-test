@@ -5,29 +5,11 @@ from rest_framework import mixins
 from rest_framework import generics
 
 
-class SnippetList(mixins.ListModelMixin,
-                  mixins.CreateModelMixin,
-                  generics.GenericAPIView):
+class SnippetList(generics.ListCreateAPIView):
     """Class based implementation of the snippet list view."""
 
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
-
-    def get(self, request, *args, **kwargs):
-        """Implement GET method for snippet list.
-
-        Arguments:
-            request -- HTTP request to snippet list view
-        """
-        return self.list(request, *args, **kwargs)
-
-    def post(self, request, *args, **kwargs):
-        """Implement POST method for snippet list.
-
-        Arguments:
-            request -- HTTP requst for snippet list view
-        """
-        return self.create(request, *args, **kwargs)
 
 
 class SnippetDetail(mixins.RetrieveModelMixin,
