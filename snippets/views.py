@@ -1,8 +1,9 @@
 """Define views for the restful api."""
 from snippets.models import Snippet
-from snippets.serializers import SnippetSerializer
+from snippets.serializers import SnippetSerializer, UserSerializer
 from rest_framework import mixins
 from rest_framework import generics
+from django.contrib.auth.models import User
 
 
 class SnippetList(generics.ListCreateAPIView):
@@ -44,3 +45,17 @@ class SnippetDetail(mixins.RetrieveModelMixin,
             request -- HTTP request
         """
         return self.destroy(request, *args, **kwargs)
+
+
+class UserList(generics.ListAPIView):
+    """Class based implementation of the user list view."""
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetail(generics.RetrieveAPIView):
+    """Class based implementation of the user detail view."""
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
