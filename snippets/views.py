@@ -12,6 +12,10 @@ class SnippetList(generics.ListCreateAPIView):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
 
+    def perform_create(self, serializer):
+        """Overwrite perform_create to add user to the snippet."""
+        serializer.save(owner=self.request.user)
+
 
 class SnippetDetail(mixins.RetrieveModelMixin,
                     mixins.UpdateModelMixin,
