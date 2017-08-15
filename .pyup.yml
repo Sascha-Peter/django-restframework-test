@@ -1,4 +1,5 @@
 update: all
 pin: True
 search: True
-assignees: Sascha-Peter
+assignees: 
+  - Sascha-Peter
