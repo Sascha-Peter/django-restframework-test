@@ -1,4 +1,4 @@
 Pygments==2.3.1
 Django==2.1.5
 Pygments==2.3.1
-djangorestframework==3.9.1
+djangorestframework==3.11.0
