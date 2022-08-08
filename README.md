@@ -1,6 +1,3 @@
-[![Updates](https://pyup.io/repos/github/Sascha-Peter/django-restframework-test/shield.svg)](https://pyup.io/repos/github/Sascha-Peter/django-restframework-test/)[![Python 3](https://pyup.io/repos/github/Sascha-Peter/django-restframework-test/python-3-shield.svg)](https://pyup.io/repos/github/Sascha-Peter/django-restframework-test/)
-
-
 # django-restframework-test
 
 Test project for django restframwork
